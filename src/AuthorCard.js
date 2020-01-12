@@ -1,11 +1,15 @@
-import React from "react";
+import React,{Component} from "react";
 
-function AuthorCard(props) {
-  const author = props.author;
-  const authorName = `${author.first_name} ${author.last_name}`;
+class AuthorCard extends Component {
+
+  render(){
+    const author = this.props.author;
+    const authorName = `${author.first_name} ${author.last_name}`;
   return (
+    
     <div className="col-lg-4 col-md-6 col-12">
-      <div className="card">
+    {console.log(author)}
+      <div className="card" onClick={()=>this.props.fnc(author)}>
         <div className="image">
           <img
             className="card-img-top img-fluid"
@@ -22,6 +26,7 @@ function AuthorCard(props) {
       </div>
     </div>
   );
+  }
 }
 
 export default AuthorCard;
